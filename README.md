@@ -7,8 +7,10 @@ A clean, compact web-based graph visualization tool for computer science problem
 - **Simple Inputs**: Specify number of nodes, edges list, and graph type (directed/undirected)
 - **Compact Layout**: Force-directed algorithm keeps nodes close together to save space
 - **Scrollable Canvas**: Supports horizontal and vertical scrolling for larger graphs
-- **Clean Design**: Eye-friendly cream background with vibrant orange nodes and maroon directional arrows
+- **Dark/Light Mode**: Toggle between themes with the sun/moon button in top-right corner
+- **Clean Design**: Eye-friendly color schemes with vibrant orange nodes and maroon directional arrows
 - **Real-time Rendering**: Instant visualization on button click
+- **Theme Persistence**: Your theme preference is saved automatically
 
 ## Usage
 
@@ -39,12 +41,21 @@ Directed: On
 - `index.html` - Main HTML file with UI and styles
 - `graph.js` - Graph rendering and force-directed layout algorithm
 
-## Color Scheme
+## Color Schemes
 
+### Light Mode
 - Background: Warm cream (#f5f1ea)
 - Nodes: Vibrant orange (#ff8c42)
 - Arrows: Maroon (#b45454)
 - Edges: Light gray (#d1d5db)
+
+### Dark Mode
+- Background: Dark warm brown (#1e1b18)
+- Nodes: Soft orange (#ff9557)
+- Arrows: Soft maroon (#d97676)
+- Edges: Dark gray (#4a4743)
+
+Both themes are carefully designed to be easy on the eyes while keeping nodes and arrows visually prominent.
 
 ## Browser Support
 

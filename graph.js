@@ -59,6 +59,12 @@ function draw(){
   const offsetX=cx-(minX+maxX)/2;
   const offsetY=cy-(minY+maxY)/2;
 
+  const style=getComputedStyle(document.documentElement);
+  const nodeColor=style.getPropertyValue('--node').trim();
+  const nodeGlow=style.getPropertyValue('--node-glow').trim();
+  const arrowColor=style.getPropertyValue('--arrow').trim();
+  const edgeColor=style.getPropertyValue('--edge').trim();
+
   ctx.clearRect(0,0,c.width,c.height);
 
   edges.forEach(([a,b])=>{
@@ -66,7 +72,7 @@ function draw(){
     const n1=nodes[a],n2=nodes[b];
     const dx=n2.x-n1.x,dy=n2.y-n1.y,d=Math.sqrt(dx*dx+dy*dy);
 
-    ctx.strokeStyle='#d1d5db';
+    ctx.strokeStyle=edgeColor;
     ctx.lineWidth=2;
     ctx.beginPath();
     ctx.moveTo(n1.x+offsetX,n1.y+offsetY);
@@ -76,8 +82,8 @@ function draw(){
     if(directed){
       const ax=n2.x-dx/d*25,ay=n2.y-dy/d*25;
       const angle=Math.atan2(dy,dx);
-      ctx.fillStyle='#b45454';
-      ctx.strokeStyle='#b45454';
+      ctx.fillStyle=arrowColor;
+      ctx.strokeStyle=arrowColor;
       ctx.lineWidth=1.5;
       ctx.beginPath();
       ctx.moveTo(ax+offsetX,ay+offsetY);
@@ -90,9 +96,9 @@ function draw(){
   });
 
   nodes.forEach((n,i)=>{
-    ctx.fillStyle='#ff8c42';
+    ctx.fillStyle=nodeColor;
     ctx.shadowBlur=12;
-    ctx.shadowColor='rgba(255,140,66,0.35)';
+    ctx.shadowColor=nodeGlow;
     ctx.beginPath();
     ctx.arc(n.x+offsetX,n.y+offsetY,20,0,Math.PI*2);
     ctx.fill();
